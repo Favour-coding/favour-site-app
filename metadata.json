@@ -1,0 +1,6 @@
+{
+  "name": "HTML to APK Studio",
+  "description": "Turn your own HTML and web apps into debug-signed Android APKs via GitHub Actions directly from your browser.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
