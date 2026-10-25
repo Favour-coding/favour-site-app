@@ -385,11 +385,8 @@ class MainActivity : AppCompatActivity() {
         val js = if (success) {
             "if (typeof window.onBiometricResult === 'function') { window.onBiometricResult(true, null); }"
         } else {
-            val safeMsg = (errorMessage ?: "Authentication failed")
-                .replace("\\", "\\\\")
-                .replace("'", "\\'")
-                .replace("\n", " ")
-            "if (typeof window.onBiometricResult === 'function') { window.onBiometricResult(false, '$safeMsg'); }"
+            val safeMsg = org.json.JSONObject.quote(errorMessage ?: "Authentication failed")
+            "if (typeof window.onBiometricResult === 'function') { window.onBiometricResult(false, $safeMsg); }"
         }
         webView.post {
             webView.evaluateJavascript(js, null)
